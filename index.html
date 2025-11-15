@@ -14,26 +14,33 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
-    }
-    .MainT {
-      font-size: 3.5rem;
-      margin: 20px 0;
-      color: #111;
-      font-weight: bold;
+      padding: 20px 20px 100px 20px; /* Top padding + bottom space for content */
     }
 
+    /* === HEADER (TOP) === */
+    .header {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+    .MainT {
+      font-size: 3.2rem;
+      color: #111;
+      font-weight: bold;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
     .subtitle {
       font-size: 1.5rem;
-      margin: 20px 0;
+      margin: 15px 0;
       color: #111;
       font-weight: bold;
     }
     .buttons {
-      margin: 40px 0;
+      margin: 25px 0;
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
@@ -61,13 +68,44 @@
       box-shadow: 0 0 25px #fff, 0 0 40px #e2b842;
       transform: scale(1.1);
     }
+
+    /* === APP DESCRIPTION (BOTTOM) === */
+    .app-info {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.1);
+      border: 2px dashed #000;
+      border-radius: 15px;
+      max-width: 800px;
+      width: 90%;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #000;
+      font-weight: bold;
+    }
+    .app-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #000;
+      text-transform: uppercase;
+    }
+    .highlight {
+      color: #000;
+      background: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* === FOOTER === */
     .footer {
-      position: absolute;
-      bottom: 20px;
+      margin-top: 40px;
       font-size: 0.9rem;
       color: #333;
       font-weight: bold;
     }
+
+    /* === SPARKLES === */
     .sparkle {
       position: absolute;
       width: 5px;
@@ -76,37 +114,68 @@
       border-radius: 50%;
       box-shadow: 0 0 12px #000;
       animation: sparkle 1.8s infinite;
+      pointer-events: none;
     }
     @keyframes sparkle {
       0%, 100% { opacity: 0; transform: scale(0); }
       50% { opacity: 1; transform: scale(1); }
     }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .MainT { font-size: 2.5rem; }
+      .subtitle { font-size: 1.2rem; }
+      .btn { font-size: 1.1rem; padding: 12px 24px; }
+      .app-info { font-size: 1rem; padding: 20px; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="MainT">
-    WELCOME TO THE <br />
-CYBERSLAP-COMMUNITIES
+  <!-- HEADER: TOP -->
+  <div class="header">
+    <div class="MainT">
+      WELCOME TO THE <br />
+      CYBERSLAP-COMMUNITIES
+    </div>
+    <p class="subtitle">The Ultimate Slap Storm — Choose Your Slap Wisely</p>
+
+    <div class="buttons">
+      <a href="YOUR_DOWNLOAD_LINK_HERE" class="btn" download>
+        Download Now
+      </a>
+      <a href="https://cyberslap.freeforums.net" class="btn" target="_blank">
+        Join Forum
+      </a>
+    </div>
   </div>
 
-  <p class="subtitle">The Ultimate Slap Storm, So Choose You'er Slap Wisely</p>
-
-  <div class="buttons">
-    <a href="YOUR_DOWNLOAD_LINK_HERE" class="btn" download>
-      Download Now
-    </a>
-    <a href="https://cyberslap.freeforums.net" class="btn" target="_blank">
-      Join Forum
-    </a>
+  <!-- APP DESCRIPTION: BOTTOM -->
+  <div class="app-info">
+    <h3>Warning: SLAP STORM INCOMING</h3>
+    <p>
+      Get ready for <span class="highlight">endless slap chaos</span> — send virtual slaps that <strong>loop for 60 seconds</strong> with 
+      <span class="highlight">blaring sound</span> and <span class="highlight">flashing GIFs</span>.
+    </p>
+    <p>
+      Join secret communities. Build your slap empire. 
+      <strong>One tap = total domination.</strong>
+    </p>
+    <p>
+      No escape. No mercy. Just <span class="highlight">PURE SLAP ENERGY</span>.
+    </p>
+    <p>
+      <strong>Warning:</strong> Victims may rage-quit. Use responsibly.
+    </p>
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
     © 2025 CyberSlap Communities | Slap Responsibly | StalkerSofter | Flynn Cross
   </div>
 
+  <!-- SPARKLES -->
   <script>
-    // Black sparkles falling across the screen
     setInterval(() => {
       const s = document.createElement('div');
       s.className = 'sparkle';
