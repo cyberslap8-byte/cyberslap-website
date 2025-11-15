@@ -3,72 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyberSlap Communities</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>CYBERSLAP - Download Now</title>
   <style>
-    :root {
-      --bg: #1C2526;
-      --accent: #00CED1;
-      --gold: #FFD700;
-      --red: #FF4500;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: var(--bg);
-      color: white;
-      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #000, #111, #222);
+      color: #FFFF00;
+      font-family: 'Courier New', monospace;
       text-align: center;
-      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
     }
-    h1 {
-      font-size: 48px;
-      color: var(--gold);
-      margin-bottom: 20px;
+    .glitch {
+      font-size: 4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      text-shadow: 
+        0.05em 0 0 #00fffc,
+        -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.05em 0 #fffc00;
+      animation: glitch 2s infinite;
     }
-    p {
-      font-size: 20px;
-      margin: 15px 0;
-      color: #ccc;
+    .glitch span {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .glitch span:first-child {
+      animation: glitch-1 0.7s infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+      transform: translate(-0.04em, -0.03em);
+      opacity: 0.8;
+    }
+    .glitch span:last-child {
+      animation: glitch-2 0.9s infinite;
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+      transform: translate(0.04em, 0.03em);
+      opacity: 0.8;
+    }
+    @keyframes glitch {
+      0%, 100% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.05em 0 #fffc00; }
+      14% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.05em 0 #fffc00; }
+      15% { text-shadow: -0.05em -0.06em 0 #00fffc, 0.05em 0.06em 0 #fc00ff, -0.05em -0.05em 0 #fffc00; }
+      49% { text-shadow: -0.05em -0.06em 0 #00fffc, 0.05em 0.06em 0 #fc00ff, -0.05em -0.05em 0 #fffc00; }
+      50% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.05em 0 #fffc00; }
+      99% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.05em 0 #fffc00; }
+    }
+    @keyframes glitch-1 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-0.05em, 0.05em); }
+      40% { transform: translate(0.05em, -0.05em); }
+      60% { transform: translate(-0.05em, 0.05em); }
+      80% { transform: translate(0.05em, -0.05em); }
+    }
+    @keyframes glitch-2 {
+      0%, 100% { transform: translate(0); }
+      30% { transform: translate(0.08em, -0.08em); }
+      70% { transform: translate(-0.08em, 0.08em); }
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #00fffc;
+      text-shadow: 0 0 10px #00fffc;
+    }
+    .buttons {
+      margin: 40px 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .btn {
-      display: inline-block;
       padding: 16px 32px;
-      background: linear-gradient(45deg, var(--gold), var(--accent));
-      color: var(--bg);
-      font-weight: 700;
-      font-size: 20px;
-      border-radius: 12px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: #FFFF00;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #FFFF00;
+      transition: all 0.3s;
       text-decoration: none;
-      margin: 20px;
-      transition: transform 0.2s;
+      display: inline-block;
     }
-    .btn:hover { transform: scale(1.05); }
-    .qr { width: 200px; margin: 30px auto; }
+    .btn:hover {
+      background: #00fffc;
+      color: #000;
+      box-shadow: 0 0 30px #00fffc;
+      transform: scale(1.1);
+    }
     .footer {
-      margin-top: 60px;
-      font-size: 14px;
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
       color: #666;
     }
-    .forum { color: var(--accent); text-decoration: underline; }
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #FFFF00;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #FFFF00;
+      animation: sparkle 2s infinite;
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0); }
+      50% { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
-  <h1>CYBERSLAP COMMUNITIES</h1>
-  <p>Slap your friends. Build your crew.</p>
-  <p><strong>Android Beta — Install Now</strong></p>
 
-  <a href="YOUR_APK_LINK" class="btn">DOWNLOAD APK</a>
-
-  <div class="qr">
-    <img src="YOUR_QR_CODE.png" alt="Scan to install" width="200"/>
+  <div class="glitch">
+    CYBERSLAP
+    <span></span>
+    <span></span>
   </div>
 
-  <p>Join the chaos:</p>
-  <p><a href="https://cyberslap.freeforums.net" class="forum" target="_blank">Official Forum</a></p>
+  <p class="subtitle">The Ultimate Slap Storm App</p>
+
+  <div class="buttons">
+    <a href="YOUR_DOWNLOAD_LINK_HERE" class="btn" download>
+      Download Now
+    </a>
+    <a href="YOUR_FORUM_LINK_HERE" class="btn" target="_blank">
+      Join Forum
+    </a>
+  </div>
 
   <div class="footer">
-    Made with rage and love<br>
-    <a href="https://x.com/CyberSlapApp" style="color:var(--accent)">@CyberSlapApp</a>
+    © 2025 CyberSlap Communities | Slap Responsibly
   </div>
+
+  <script>
+    // Add sparkles
+    setInterval(() => {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.top = Math.random() * 100 + 'vh';
+      s.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 2000);
+    }, 300);
+  </script>
+
 </body>
-</html> 
+</html>
