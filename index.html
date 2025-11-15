@@ -2,137 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CYBERSLAP - Download Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>CYBERSLAP</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
     body {
       background: #e2b842;
       color: #000;
-      font-family: 'Courier New', monospace;
+      font-family: 'Courier New', monospace, sans-serif;
       text-align: center;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow-x: hidden;
+      padding: 20px 15px 80px;
+      min-height: 100vh;
       position: relative;
-      padding: 20px 20px 100px 20px; /* Top padding + bottom space for content */
     }
 
-    /* === HEADER (TOP) === */
+    /* === HEADER === */
     .header {
-      margin-top: 20px;
       width: 100%;
-      max-width: 800px;
+      max-width: 500px;
+      margin-bottom: 20px;
     }
     .MainT {
-      font-size: 3.2rem;
-      color: #111;
+      font-size: 2.4rem;
       font-weight: bold;
       line-height: 1.1;
+      color: #000;
       text-transform: uppercase;
+      text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
+      letter-spacing: 1px;
     }
     .subtitle {
-      font-size: 1.5rem;
-      margin: 15px 0;
-      color: #111;
+      font-size: 1.3rem;
+      margin: 12px 0 20px;
+      color: #000;
       font-weight: bold;
+      padding: 0 10px;
     }
+
+    /* === BUTTONS === */
     .buttons {
-      margin: 25px 0;
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 30px;
     }
     .btn {
-      padding: 16px 32px;
-      font-size: 1.3rem;
+      padding: 18px 20px;
+      font-size: 1.4rem;
       font-weight: bold;
       text-transform: uppercase;
       background: #000;
       color: #e2b842;
-      border: 2px solid #000;
-      border-radius: 8px;
+      border: 3px solid #000;
+      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
       text-decoration: none;
-      display: inline-block;
+      display: block;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .btn:hover {
+    .btn:hover, .btn:active {
       background: #111;
       color: #fff;
       border-color: #fff;
-      box-shadow: 0 0 25px #fff, 0 0 40px #e2b842;
-      transform: scale(1.1);
+      box-shadow: 0 0 20px #fff, 0 0 30px #e2b842;
+      transform: translateY(-2px);
     }
 
-    /* === APP DESCRIPTION (BOTTOM) === */
+    /* === APP INFO BOX === */
     .app-info {
-      margin-top: 60px;
-      padding: 30px;
-      background: rgba(0, 0, 0, 0.1);
-      border: 2px dashed #000;
-      border-radius: 15px;
-      max-width: 800px;
-      width: 90%;
-      font-size: 1.1rem;
-      line-height: 1.7;
+      background: rgba(0, 0, 0, 0.12);
+      border: 3px dashed #000;
+      border-radius: 16px;
+      padding: 22px;
+      margin: 20px 0;
+      width: 100%;
+      max-width: 500px;
+      font-size: 1.15rem;
+      line-height: 1.6;
       color: #000;
       font-weight: bold;
     }
     .app-info h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 1.6rem;
+      margin-bottom: 14px;
       color: #000;
       text-transform: uppercase;
     }
     .highlight {
-      color: #000;
       background: #fff;
+      color: #000;
       padding: 2px 8px;
-      border-radius: 4px;
+      border-radius: 6px;
       font-weight: bold;
     }
 
     /* === FOOTER === */
     .footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
+      margin-top: 30px;
+      font-size: 0.85rem;
       color: #333;
       font-weight: bold;
+      padding: 0 10px;
     }
 
-    /* === SPARKLES === */
+    /* === SPARKLES (LIGHTWEIGHT) === */
     .sparkle {
       position: absolute;
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
       background: #000;
       border-radius: 50%;
-      box-shadow: 0 0 12px #000;
-      animation: sparkle 1.8s infinite;
       pointer-events: none;
+      animation: sparkle 1.6s infinite;
     }
     @keyframes sparkle {
       0%, 100% { opacity: 0; transform: scale(0); }
       50% { opacity: 1; transform: scale(1); }
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-      .MainT { font-size: 2.5rem; }
+    /* === MOBILE ONLY TWEAKS === */
+    @media (max-width: 480px) {
+      .MainT { font-size: 2.1rem; }
       .subtitle { font-size: 1.2rem; }
-      .btn { font-size: 1.1rem; padding: 12px 24px; }
-      .app-info { font-size: 1rem; padding: 20px; }
+      .btn { font-size: 1.3rem; padding: 16px; }
+      .app-info { font-size: 1.05rem; padding: 18px; }
+      .app-info h3 { font-size: 1.4rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER: TOP -->
+  <!-- HEADER -->
   <div class="header">
     <div class="MainT">
       WELCOME TO THE <br />
@@ -150,22 +164,20 @@
     </div>
   </div>
 
-  <!-- APP DESCRIPTION: BOTTOM -->
+  <!-- APP DESCRIPTION -->
   <div class="app-info">
-    <h3>Warning: SLAP STORM INCOMING</h3>
+    <h3>SLAP STORM INCOMING</h3>
     <p>
-      Get ready for <span class="highlight">endless slap chaos</span> — send virtual slaps that <strong>loop for 60 seconds</strong> with 
-      <span class="highlight">blaring sound</span> and <span class="highlight">flashing GIFs</span>.
+      One tap. <span class="highlight">60 seconds of chaos.</span> Blasting sound. Flashing GIFs. 
+      <strong>No escape.</strong>
     </p>
     <p>
       Join secret communities. Build your slap empire. 
-      <strong>One tap = total domination.</strong>
+      <span class="highlight">Dominate your friends.</span>
     </p>
     <p>
-      No escape. No mercy. Just <span class="highlight">PURE SLAP ENERGY</span>.
-    </p>
-    <p>
-      <strong>Warning:</strong> Victims may rage-quit. Use responsibly.
+      <strong>Warning:</strong> May cause rage-quits. 
+      Slap responsibly.
     </p>
   </div>
 
@@ -174,17 +186,23 @@
     © 2025 CyberSlap Communities | Slap Responsibly | StalkerSofter | Flynn Cross
   </div>
 
-  <!-- SPARKLES -->
+  <!-- SPARKLES (lightweight, throttled) -->
   <script>
+    let sparkleCount = 0;
     setInterval(() => {
+      if (sparkleCount >= 8) return; // Limit to 8 at a time
+      sparkleCount++;
       const s = document.createElement('div');
       s.className = 'sparkle';
       s.style.left = Math.random() * 100 + 'vw';
       s.style.top = Math.random() * 100 + 'vh';
-      s.style.animationDelay = Math.random() * 1.8 + 's';
+      s.style.animationDelay = Math.random() * 1.6 + 's';
       document.body.appendChild(s);
-      setTimeout(() => s.remove(), 1800);
-    }, 250);
+      setTimeout(() => {
+        s.remove();
+        sparkleCount--;
+      }, 1600);
+    }, 400);
   </script>
 
 </body>
