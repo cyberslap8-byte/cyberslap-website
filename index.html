@@ -6,7 +6,11 @@
   <title>CYBERSLAP</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    html, body { height:100%; overflow-x:hidden; font-family:'Courier New',monospace; }
+    html, body { 
+      min-height:100vh; 
+      overflow-x:hidden; 
+      font-family:'Courier New',monospace; 
+    }
     
     body {
       background:#e2b842;
@@ -16,154 +20,149 @@
       flex-direction:column;
       min-height:100vh;
       position:relative;
-      overflow:hidden;
+      /* REMOVED overflow:hidden → NOW SCROLLS PERFECTLY ON PHONE & PC */
     }
 
-    /* BIG BOLD HERO */
+    /* HERO – EVEN MORE AGGRESSIVE */
     .hero {
-      padding:45px 20px 50px;
-      background:linear-gradient(135deg, rgba(255,0,0,0.15), rgba(255,255,255,0.2));
-      border-bottom:8px double #000;
+      padding:50px 20px 60px;
+      background:linear-gradient(135deg, rgba(255,0,0,0.25), rgba(255,255,255,0.15));
       position:relative;
     }
     .tagline {
-      font-size:2rem;
+      font-size:2.1rem;
       font-weight:900;
       text-transform:uppercase;
       line-height:1.2;
-      margin-bottom:25px;
-      animation: pulse 3s infinite;
-      text-shadow: 3px 3px 0 rgba(255,0,0,0.3);
+      margin-bottom:30px;
+      animation: pulse 2.5s infinite;
+      color:#000;
+      text-shadow: 0 0 15px #ff0000;
     }
     .MainT {
-      font-size:4.2rem;
+      font-size:4.5rem;
       font-weight:900;
-      line-height:0.92;
+      line-height:0.9;
       text-transform:uppercase;
-      letter-spacing:4px;
+      letter-spacing:5px;
       color:#000;
       text-shadow:
-        6px 6px 0 #ff0000,
-        -6px -6px 0 #ff0000,
-        0 0 20px #fff;
-      animation: glitch 4s infinite;
-      margin: ;
+        8px 8px 0 #ff0000,
+        -8px -8px 0 #ff0000,
+        0 0 30px #fff,
+        0 0 50px #ff0000;
+      animation: glitch 3.5s infinite;
+      margin:20px 0;
     }
     .dev-call {
-      font-size:1.5rem;
+      font-size:1.6rem;
       font-weight:900;
       background:#000;
       color:#e2b842;
       display:inline-block;
-      padding:16px 30px;
+      padding:18px 35px;
       border-radius:50px;
-      margin:30px auto 0;
-      border:4px solid #000;
-      box-shadow:0 0 20px #ff0000;
-      animation: glow 2s infinite alternate;
+      margin:35px auto 0;
+      border:5px solid #ff0000;
+      box-shadow:0 0 30px #ff0000, inset 0 0 20px rgba(255,0,0,0.3);
+      animation: glow 1.8s infinite alternate;
     }
 
-    /* INSANE BUTTONS */
+    /* BUTTONS – MASSIVE, JUICY, IMPOSSIBLE TO IGNORE */
     .buttons {
-      padding:0 20px 40px;
+      padding:0 20px 50px;
       display:flex;
       flex-direction:column;
-      gap:22px;
+      gap:25px;
+      z-index:2;
+      position:relative;
     }
     .btn {
       display:block;
-      padding:28px;
-      font-size:2.1rem;
+      padding:30px;
+      font-size:2.2rem;
       font-weight:900;
       text-transform:uppercase;
       background:#000;
       color:#e2b842;
-      border: ;
-      border:6px solid #000;
-      border-radius:20px;
+      border:6px solid #ff0000;
+      border-radius:22px;
       text-decoration:none;
-      box-shadow:0 10px 0 #000, 0 0 30px #ff0000;
+      box-shadow:0 12px 0 #000, 0 0 40px #ff0000;
       transition:all 0.25s;
-      min-height:85px;
-      animation: bounce 2.5s infinite;
+      min-height:90px;
+      animation: bounce 2.2s infinite;
     }
     .btn:active {
-      transform:translateY(8px);
-      box-shadow:0 2px 0 #000, 0 0 40px #ff0000;
+      transform:translateY(10px);
+      box-shadow:0 2px 0 #000, 0 0 50px #ff0000;
     }
 
-    /* INFO SECTION – STILL BIG, NOW WITH RED ACCENTS */
+    /* INFO SECTION – FULL CHAOS */
     .info {
       flex:1;
-      padding:40px 20px;
-      background:linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,0,0,0.15));
-      border-top:8px double #000;
+      padding:50px 20px;
+      background:linear-gradient(to bottom, rgba(255,0,0,0.2), rgba(0,0,0,0.2));
+      border-top:10px solid #ff0000;  /* ONE THICK RED LINE – NO MORE WEIRD DOUBLE LINES */
     }
     .info h3 {
-      font-size:2.6rem;
-      margin-bottom:25px;
+      font-size:2.8rem;
+      margin-bottom:30px;
       text-transform:uppercase;
       color:#000;
-      text-shadow: 4px 4px 0 #ff0000;
+      text-shadow: 5px 5px 0 #ff0000;
     }
     .info p {
-      font-size:1.5rem;
-      line-height:1.7;
-      margin-bottom:22px;
+      font-size:1.6rem;
+      line-height:1.75;
+      margin-bottom:25px;
       font-weight:900;
       color:#000;
+      text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
     }
 
-    /* FOOTER */
+    /* FOOTER – POPS HARD */
     .footer {
-      padding:25px;
+      padding:30px;
       background:#000;
       color:#e2b842;
       font-weight:900;
-      font-size:1.1rem;
-      border-top:6px solid #ff0000;
+      font-size:1.3rem;
+      border-top:8px solid #ff0000;
     }
 
-    /* ANIMATIONS – THIS IS WHERE IT POPS */
-    @keyframes pulse {
-      0%,100% { transform:scale(1); }
-      50% { transform:scale(1.03); }
-    }
+    /* ANIMATIONS – MAXIMUM HYPE */
+    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
     @keyframes glitch {
-      0%,100% { text-shadow:6px 6px 0 #ff0000, -6px -6px 0 #ff0000; }
-      20% { text-shadow:-6px 6px 0 #ff0000, 6px -6px 0 #ff0000; }
-      40% { text-shadow:8px -8px 0 #000, -8px 8px 0 #000; }
-      60% { text-shadow:0 0 20px #ff0000; }
+      0%,100% { text-shadow:8px 8px 0 #ff0000, -8px -8px 0 #ff0000; }
+      25% { text-shadow:-8px 8px 0 #ff0000, 8px -8px 0 #ff0000; }
+      50% { text-shadow:10px -10px 0 #000, -10px 10px 0 #000; }
+      75% { text-shadow:0 0 40px #ff0000; }
     }
-    @keyframes glow {
-      from { box-shadow:0 0 20px #ff0000; }
-      to { box-shadow:0 0 40px #ff0000, 0 0 60px #ff0000; }
-    }
-    @keyframes bounce {
-      0%,100% { transform:translateY(0); }
-      50% { transform:translateY(-12px); }
-    }
+    @keyframes glow { from { box-shadow:0 0 30px #ff0000; } to { box-shadow:0 0 60px #ff0000; } }
+    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
 
-    /* CRAZY SPARKLES / SLAP PARTICLES */
+    /* EXPLOSIVE SLAP EMOJI PARTICLES */
     .particle {
       position:absolute;
-      font-size:2rem;
+      font-size:3rem;
       pointer-events:none;
-      animation:explode 1.2s forwards;
+      animation:explode 1s forwards;
       z-index:10;
+      text-shadow:0 0 20px #ff0000;
     }
     @keyframes explode {
       0% { opacity:1; transform:scale(0) rotate(0); }
-      100% { opacity:0; transform:scale(2) translateY(-100px) rotate(360deg); }
+      100% { opacity:0; transform:scale(3) translateY(-120px) rotate(720deg); }
     }
 
     @media (max-width:480px) {
-      .tagline {font-size:1.7rem;}
-      .MainT {font-size:3.4rem;}
-      .dev-call {font-size:1.35rem;}
-      .btn {font-size:1.8rem; padding:26px;}
-      .info h3 {font-size:2.2rem;}
-      .info p {font-size:1.35rem;}
+      .tagline {font-size:1.8rem;}
+      .MainT {font-size:3.6rem; letter-spacing:3px;}
+      .dev-call {font-size:1.4rem; padding:16px 25px;}
+      .btn {font-size:1.9rem; padding:28px;}
+      .info h3 {font-size:2.3rem;}
+      .info p {font-size:1.4rem;}
     }
   </style>
 </head>
@@ -204,17 +203,17 @@
     © 2025 CyberSlap Communities | Flynn Cross | Slap Responsibly 
   </div>
 
-  <!-- SLAP PARTICLES EVERY FEW SECONDS -->
+  <!-- EXPLOSIVE PARTICLES -->
   <script>
     setInterval(() => {
       const p = document.createElement('div');
       p.className = 'particle';
       p.innerHTML = Math.random() > 0.5 ? '🤚💥' : '👋🔥';
       p.style.left = Math.random() * 100 + 'vw';
-      p.style.top = Math.random() * 40 + 'vh';
+      p.style.top = Math.random() * 50 + 'vh';
       document.body.appendChild(p);
-      setTimeout(() => p.remove(), 1200);
-    }, 800);
+      setTimeout(() => p.remove(), 1000);
+    }, 700);
   </script>
 
 </body>
