@@ -20,10 +20,9 @@
       flex-direction:column;
       min-height:100vh;
       position:relative;
-      /* REMOVED overflow:hidden → NOW SCROLLS PERFECTLY ON PHONE & PC */
     }
 
-    /* HERO – EVEN MORE AGGRESSIVE */
+    /* HERO – UNTOUCHED */
     .hero {
       padding:50px 20px 60px;
       background:linear-gradient(135deg, rgba(255,0,0,0.25), rgba(255,255,255,0.15));
@@ -68,7 +67,7 @@
       animation: glow 1.8s infinite alternate;
     }
 
-    /* BUTTONS – MASSIVE, JUICY, IMPOSSIBLE TO IGNORE */
+    /* BUTTONS – FIXED RED BORDER ALIGNMENT */
     .buttons {
       padding:0 20px 50px;
       display:flex;
@@ -85,25 +84,43 @@
       text-transform:uppercase;
       background:#000;
       color:#e2b842;
-      border:6px solid #ff0000;
       border-radius:22px;
       text-decoration:none;
-      box-shadow:0 12px 0 #000, 0 0 40px #ff0000;
+      box-shadow:0 12px 0 #000; /* Black bottom shadow stays */
       transition:all 0.25s;
       min-height:90px;
       animation: bounce 2.2s infinite;
+      position:relative; /* For ::before positioning */
+      overflow:visible;
+    }
+    .btn::before {
+      content:'';
+      position:absolute;
+      top:-6px;
+      left:-6px;
+      right:-6px;
+      bottom:-6px;
+      border:6px solid #ff0000;
+      border-radius:28px; /* Matches button radius + border width */
+      box-shadow:0 0 40px #ff0000;
+      z-index:-1;
+      animation: bounce 2.2s infinite; /* Syncs with button bounce */
     }
     .btn:active {
       transform:translateY(10px);
-      box-shadow:0 2px 0 #000, 0 0 50px #ff0000;
+      box-shadow:0 2px 0 #000;
+    }
+    .btn:active::before {
+      transform:translateY(10px);
+      box-shadow:0 0 50px #ff0000;
     }
 
-    /* INFO SECTION – FULL CHAOS */
+    /* INFO SECTION – UNTOUCHED */
     .info {
       flex:1;
       padding:50px 20px;
       background:linear-gradient(to bottom, rgba(255,0,0,0.2), rgba(0,0,0,0.2));
-      border-top:10px solid #ff0000;  /* ONE THICK RED LINE – NO MORE WEIRD DOUBLE LINES */
+      border-top:10px solid #ff0000;
     }
     .info h3 {
       font-size:2.8rem;
@@ -121,7 +138,7 @@
       text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
     }
 
-    /* FOOTER – POPS HARD */
+    /* FOOTER – UNTOUCHED */
     .footer {
       padding:30px;
       background:#000;
@@ -131,7 +148,7 @@
       border-top:8px solid #ff0000;
     }
 
-    /* ANIMATIONS – MAXIMUM HYPE */
+    /* ANIMATIONS – UNTOUCHED EXCEPT BOUNCE */
     @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
     @keyframes glitch {
       0%,100% { text-shadow:8px 8px 0 #ff0000, -8px -8px 0 #ff0000; }
@@ -142,7 +159,7 @@
     @keyframes glow { from { box-shadow:0 0 30px #ff0000; } to { box-shadow:0 0 60px #ff0000; } }
     @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
 
-    /* EXPLOSIVE SLAP EMOJI PARTICLES */
+    /* PARTICLES – UNTOUCHED */
     .particle {
       position:absolute;
       font-size:3rem;
@@ -218,4 +235,3 @@
 
 </body>
 </html>
-
