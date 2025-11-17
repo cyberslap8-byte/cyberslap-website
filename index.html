@@ -5,220 +5,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>CYBERSLAP</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Courier New', monospace, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; overflow-x:hidden; font-family:'Courier New',monospace; }
+    
     body {
-      background: #e2b842;
-      color: #000;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 0;
-      min-height: 100vh;
-      position: relative;
+      background:#e2b842;
+      color:#000;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
     }
 
-    /* === TITLE — FULL WIDTH, TOP === */
-    .title-container {
-      width: 100%;
-      padding: 40px 20px 20px;
-      background: rgba(0,0,0,0.05);
-      border-bottom: 4px solid #000;
+    /* TOP HERO – TAKES FULL SCREEN REAL ESTATE */
+    .hero {
+      padding:30px 20px 40px;
+      background:linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+      border-bottom:6px double #000;
+    }
+    .tagline {
+      font-size:1.6rem;
+      font-weight:900;
+      margin-bottom:20px;
+      line-height:1.3;
+      text-transform:uppercase;
     }
     .MainT {
-      font-size: 3.2rem;
-      font-weight: 900;
-      line-height: 1.0;
-      text-transform: uppercase;
-      color: #000;
-      text-shadow: 
-        3px 3px 0 #fff,
-        -3px -3px 0 #fff,
-        3px -3px 0 #fff,
-        -3px 3px 0 #fff;
-      letter-spacing: 2px;
+      font-size:3.4rem;
+      font-weight:900;
+      line-height:0.95;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      text-shadow:
+        4px 4px 0 #fff,
+        -4px -4px 0 #fff,
+        4px -4px 0 #fff,
+        -4px 4px 0 #fff;
+      margin:15px 0;
+    }
+    .dev-call {
+      font-size:1.3rem;
+      font-weight:bold;
+      background:#000;
+      color:#e2b842;
+      display:inline-block;
+      padding:12px 20px;
+      border-radius:50px;
+      margin:20px auto;
     }
 
-    /* === SUBTITLE === */
-    .subtitle {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin: 15px 20px 25px;
-      color: #000;
-      padding: 0 10px;
-    }
-
-    /* === BUTTONS — FULL WIDTH, STACKED === */
+    /* BIG JUICY BUTTONS */
     .buttons {
-      width: 100%;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 30px;
+      padding:0 20px 30px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
     }
     .btn {
-      width: 100%;
-      padding: 22px;
-      font-size: 1.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      background: #000;
-      color: #e2b842;
-      border: 4px solid #000;
-      border-radius: 16px;
-      box-shadow: 0 6px 0 #000;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 1px;
+      display:block;
+      padding:24px;
+      font-size:1.85rem;
+      font-weight:900;
+      text-transform:uppercase;
+      background:#000;
+      color:#e2b842;
+      border:5px solid #000;
+      border-radius:18px;
+      text-decoration:none;
+      box-shadow:0 8px 0 #000;
+      transition:all 0.2s;
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .btn:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 #000;
-    }
-    .btn:hover {
-      background: #111;
-      color: #fff;
-      border-color: #fff;
+      transform:translateY(6px);
+      box-shadow:0 2px 0 #000;
     }
 
-    /* === APP INFO — SCROLLABLE, FULL WIDTH === */
-    .app-info {
-      flex: 1;
-      width: 100%;
-      padding: 30px 20px;
-      background: rgba(255,255,255,0.15);
-      border-top: 4px dashed #000;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+    /* WHAT IS CYBERSLAP – SCROLL AREA */
+    .info {
+      flex:1;
+      padding:35px 20px;
+      background:rgba(255,255,255,0.2);
+      border-top:6px double #000;
     }
-    .app-info h3 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-      color: #000;
-      text-transform: uppercase;
-      font-weight: 900;
+    .info h3 {
+      font-size:2.2rem;
+      margin-bottom:20px;
+      text-transform:uppercase;
     }
-    .app-info p {
-      font-size: 1.3rem;
-      line-height: 1.7;
-      margin-bottom: 16px;
-      font-weight: bold;
-      color: #000;
+    .info p {
+      font-size:1.35rem;
+      line-height:1.65;
+      margin-bottom:18px;
+      font-weight:bold;
     }
     .highlight {
-      background: #fff;
-      color: #000;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-weight: 900;
+      background:#fff;
+      color:#000;
+      padding:4px 12px;
+      border-radius:8px;
+      font-weight:900;
     }
 
-    /* === FOOTER === */
+    /* FOOTER */
     .footer {
-      width: 100%;
-      padding: 15px 20px;
-      font-size: 0.9rem;
-      color: #333;
-      font-weight: bold;
-      background: rgba(0,0,0,0.05);
-      border-top: 2px solid #000;
+      padding:20px;
+      background:rgba(0,0,0,0.1);
+      border-top:3px solid #000;
+      font-weight:bold;
+      font-size:1rem;
     }
 
-    /* === SPARKLES — SUBTLE, NOT HEAVY === */
+    /* SPARKLES */
     .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: #000;
-      border-radius: 50%;
-      pointer-events: none;
-      animation: sparkle 1.4s infinite;
-      z-index: 1;
+      position:absolute;
+      width:7px; height:7px;
+      background:#000;
+      border-radius:50%;
+      pointer-events:none;
+      animation:sparkle 1.3s infinite;
     }
     @keyframes sparkle {
-      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+      0%,100% {opacity:0; transform:scale(0);}
+      50% {opacity:1; transform:scale(1) rotate(180deg);}
     }
 
-    /* === MOBILE ONLY — FORCE FULL SCREEN === */
-    @media (max-width: 480px) {
-      .MainT { font-size: 2.6rem; letter-spacing: 1px; }
-      .subtitle { font-size: 1.4rem; }
-      .btn { font-size: 1.6rem; padding: 20px; }
-      .app-info h3 { font-size: 1.7rem; }
-      .app-info p { font-size: 1.2rem; }
+    @media (max-width:480px) {
+      .MainT {font-size:2.8rem;}
+      .tagline {font-size:1.45rem;}
+      .btn {font-size:1.7rem; padding:22px;}
+      .info h3 {font-size:1.9rem;}
+      .info p {font-size:1.25rem;}
     }
   </style>
 </head>
 <body>
 
-  <!-- TITLE -->
-  <div class="title-container">
-    <div class="subtitle">Have You Ever Just Wanted To Reach Through The Screen And Slap Someone For Talking Complete Nonsense </div>
-    <div class="MainT">
-      WELCOME TO THE<br>CYBERSLAP COMMUNITIES
+  <div class="hero">
+    <div class="tagline">Ever wanted to reach through the screen<br>and SLAP someone talking nonsense?</div>
+    
+    <div class="MainT">WELCOME TO<br>CYBERSLAP<br>COMMUNITIES</div>
+    
+    <div class="dev-call">
+      Looking for Android & iOS devs — talk to me on the forum!
     </div>
-    <p class="subtitle">Looking For Help To Further Develop The App & Also Convert To IOS. <br>App Developers Intrested Can Talk To Me In The Forum </p>
   </div>
 
-  <!-- BUTTONS -->
   <div class="buttons">
-    <a href="Install.html" class="btn">
-      DOWNLOAD PAGE & INSTRUCTIONS
-    </a>
-     <a href="images.html" class="btn">
-      SCREENSHOTS & VIDEOS
-    </a>
+    <a href="Install.html" class="btn">DOWNLOAD PAGE & INSTRUCTIONS</a>
+    <a href="images.html" class="btn">SCREENSHOTS & VIDEOS</a>
     <a href="https://cyberslap.freeforums.net" class="btn" target="_blank">
-      JOIN THE CYBERSLAP COMMUNITIES FORUM 
+      JOIN THE FORUM
     </a>
   </div>
 
-  <!-- APP INFO — TAKES ALL REMAINING SPACE -->
-  <div class="app-info">
-    <h3>SO WHAT IS THE CYBERSLAP COMMUNITIES</h3>
-    <p>
-      Let me introduce you to CyberSlap Communities, an innovative mobile app that's poised to become the next viral sensation in social gaming and pranking. Imagine a world where friends, family, and online communities can "slap" each other digitally—sending instant, unignorable push notifications that trigger a full-screen overlay with of a emoji face being slapped, accompanied by a hilarious slapping sound effect and a personal message/roast. It's fun, harmless chaos that keeps users engaged, laughing, and coming back for more.
-    </p>
-    <p>
-    Communities Built on Playful Rivalry At its heart, CyberSlap is a community-driven platform where users create or join groups based on shared interests—think "Football Fans", "Work Mates" or "School Friends" Once in a community, members can send "slaps" to each other, triggering the overlay and sound on the recipient's phone. It's like a digital slap in face</p>
-    <p>
-      <strong>HOW THE CYBERSLAP COMMUNITIES WORK</strong>
-    </p>
-    <P> You will pick a username once thats done you'll then be able to join or create a community, once your in a community you'll be able to send a slap with a message, that then sends a constent every 10s heads-up notification until the slap is accepted</P>
+  <div class="info">
+    <h3>WHAT IS CYBERSLAP?</h3>
+    <p>CyberSlap is the ultimate digital prank app. Send a slap to anyone in your community and their phone explodes into a <span class="highlight">full-screen slapping emoji + loud slap sound</span> for a full minute.</p>
+    
+    <p>No escape. No mute. They have to tap “I’ve been slapped” to stop it — and until they do, you keep spamming them every 10 seconds.</p>
+    
+    <p>Create secret groups with friends, work mates, football fans — anywhere you want playful chaos.</p>
+    
+    <p>One tap = instant legendary status.</p>
   </div>
 
-  <!-- FOOTER -->
   <div class="footer">
-    © 2025 CyberSlap Communities | Flynn Cross | Slap Responsibly 
+    © 2025 CyberSlap Communities | Flynn Cross | Slap Responsibly
   </div>
 
-  <!-- SPARKLES -->
   <script>
-    let count = 0;
-    setInterval(() => {
-      if (count >= 6) return;
-      count++;
-      const s = document.createElement('div');
-      s.className = 'sparkle';
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.top = Math.random() * 100 + 'vh';
+    let c=0;
+    setInterval(()=>{if(c>=7)return;c++;
+      const s=document.createElement('div');
+      s.className='sparkle';
+      s.style.left=Math.random()*100+'vw';
+      s.style.top=Math.random()*100+'vh';
       document.body.appendChild(s);
-      setTimeout(() => { s.remove(); count--; }, 1400);
-    }, 500);
+      setTimeout(()=>{s.remove();c--;},1300);
+    },450);
   </script>
 
 </body>
