@@ -78,6 +78,31 @@
       animation: glow 1.8s infinite alternate;
     }
 
+    /* ENLARGED IMAGE – 50% BIGGER, RESPONSIVE, CENTERED */
+    .slap-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      margin: 20px 0;
+      width: 100%;
+    }
+    .slap-image-container img {
+      width: 150%; /* 50% enlargement from default */
+      max-width: 100%; /* Responsive on mobile */
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Subtle shadow for pop */
+      transition: transform 0.3s ease; /* Smooth zoom on hover/tap */
+    }
+    .slap-image-container img:hover,
+    .slap-image-container img:active {
+      transform: scale(1.05); /* Slight extra zoom on interaction */
+    }
+    .slap-image-container a {
+      text-decoration: none; /* No underline on link */
+    }
+
    
 
     /* INFO SECTION – FULL CHAOS */
@@ -160,7 +185,11 @@
       Looking For Help To Further Develop The App & Also Convert To IOS.<br>App Developers Interested Can Talk To Me In The Forum
     </div>
   </div>
-<a href="https://ibb.co/tpCD3nZm"><img src="https://i.ibb.co/DfKQLmGV/slap-image.jpg" alt="slap-image" border="0"></a>
+
+  <!-- ENLARGED IMAGE WRAPPER -->
+  <div class="slap-image-container">
+    <a href="https://ibb.co/tpCD3nZm"><img src="https://i.ibb.co/DfKQLmGV/slap-image.jpg" alt="slap-image" border="0"></a>
+  </div>
 
   <div class="info">
     <h3>SO WHAT IS THE CYBERSLAP COMMUNITIES</h3>
@@ -194,4 +223,3 @@
 
 </body>
 </html>
-
