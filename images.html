@@ -78,31 +78,6 @@
       animation: glow 1.8s infinite alternate;
     }
 
-   
-
-    /* INFO SECTION – FULL CHAOS */
-    .info {
-      flex:1;
-      padding:50px 20px;
-      background:linear-gradient(to bottom, rgba(255,0,0,0.2), rgba(0,0,0,0.2));
-      border-top:10px solid #ff0000;  /* ONE THICK RED LINE – NO MORE WEIRD DOUBLE LINES */
-    }
-    .info h3 {
-      font-size:2.8rem;
-      margin-bottom:30px;
-      text-transform:uppercase;
-      color:#000;
-      text-shadow: 5px 5px 0 #ff0000;
-    }
-    .info p {
-      font-size:1.6rem;
-      line-height:1.75;
-      margin-bottom:25px;
-      font-weight:900;
-      color:#000;
-      text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
-    }
-
     /* FOOTER – POPS HARD */
     .footer {
       padding:30px;
@@ -111,40 +86,6 @@
       font-weight:900;
       font-size:1.3rem;
       border-top:8px solid #ff0000;
-    }
-
-    /* ANIMATIONS – MAXIMUM HYPE */
-    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
-    @keyframes glitch {
-      0%,100% { text-shadow:8px 8px 0 #ff0000, -8px -8px 0 #ff0000; }
-      25% { text-shadow:-8px 8px 0 #ff0000, 8px -8px 0 #ff0000; }
-      50% { text-shadow:10px -10px 0 #000, -10px 10px 0 #000; }
-      75% { text-shadow:0 0 40px #ff0000; }
-    }
-    @keyframes glow { from { box-shadow:0 0 30px #ff0000; } to { box-shadow:0 0 60px #ff0000; } }
-    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
-
-    /* EXPLOSIVE SLAP EMOJI PARTICLES */
-    .particle {
-      position:absolute;
-      font-size:3rem;
-      pointer-events:none;
-      animation:explode 1s forwards;
-      z-index:10;
-      text-shadow:0 0 20px #ff0000;
-    }
-    @keyframes explode {
-      0% { opacity:1; transform:scale(0) rotate(0); }
-      100% { opacity:0; transform:scale(3) translateY(-120px) rotate(720deg); }
-    }
-
-    @media (max-width:480px) {
-      .tagline {font-size:1.8rem;}
-      .MainT {font-size:3.6rem; letter-spacing:3px;}
-      .dev-call {font-size:1.4rem; padding:16px 25px;}
-      .btn {font-size:1.9rem; padding:28px;}
-      .info h3 {font-size:2.3rem;}
-      .info p {font-size:1.4rem;}
     }
   </style>
 </head>
