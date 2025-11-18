@@ -80,30 +80,32 @@
 
     /* ENLARGED IMAGE – NOW TRULY 50%+ BIGGER, FULL CLICKABLE */
     .slap-image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px 0;
-      margin: 20px 0;
-      width: 100%;
-      max-width: none; /* Lets it expand freely */
-    }
-    .slap-image-container img {
-      width: 90vw; /* 90% screen width – HUGE on mobile */
-      min-width: 300px; /* 50%+ baseline enlargement */
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Subtle shadow for pop */
-      transition: transform 0.3s ease; /* Smooth zoom on hover/tap */
-      max-width: none; /* Removes any cap */
-    }
-    .slap-image-container img:hover,
-    .slap-image-container img:active {
-      transform: scale(1.05); /* Slight extra zoom on interaction */
-    }
-    .slap-image-container a {
-      text-decoration: none; /* No underline on link */
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  margin: 20px 0;
+  width: 100%;
+  max-width: none;
+}
+.slap-image-container img {
+  max-width: 100%; /* Caps at native size—no upscale blur */
+  width: auto; /* Lets it fill naturally */
+  min-width: 80vw; /* Still huge on mobile (80% screen) */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  image-rendering: -webkit-optimize-contrast; /* Sharper edges on WebKit (Chrome/Opera) */
+  image-rendering: crisp-edges; /* Pixel-perfect on Firefox/Safari */
+}
+.slap-image-container img:hover,
+.slap-image-container img:active {
+  transform: scale(1.02); /* Toned-down zoom to avoid extra blur */
+}
+.slap-image-container a {
+  text-decoration: none;
+}
 
    
 
