@@ -78,7 +78,7 @@
       animation: glow 1.8s infinite alternate;
     }
 
-    /* ENLARGED IMAGE – 50% BIGGER, RESPONSIVE, CENTERED */
+    /* ENLARGED IMAGE – NOW TRULY 50%+ BIGGER, FULL CLICKABLE */
     .slap-image-container {
       display: flex;
       justify-content: center;
@@ -86,14 +86,16 @@
       padding: 20px 0;
       margin: 20px 0;
       width: 100%;
+      max-width: none; /* Lets it expand freely */
     }
     .slap-image-container img {
-      width: 150%; /* 50% enlargement from default */
-      max-width: 100%; /* Responsive on mobile */
+      width: 90vw; /* 90% screen width – HUGE on mobile */
+      min-width: 300px; /* 50%+ baseline enlargement */
       height: auto;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Subtle shadow for pop */
       transition: transform 0.3s ease; /* Smooth zoom on hover/tap */
+      max-width: none; /* Removes any cap */
     }
     .slap-image-container img:hover,
     .slap-image-container img:active {
@@ -186,9 +188,9 @@
     </div>
   </div>
 
-  <!-- ENLARGED IMAGE WRAPPER -->
+  <!-- FIXED: BIGGER IMAGE + DIRECT CLICK LINK -->
   <div class="slap-image-container">
-    <a href="https://ibb.co/tpCD3nZm"><img src="https://i.ibb.co/DfKQLmGV/slap-image.jpg" alt="slap-image" border="0"></a>
+    <a href="https://i.ibb.co/DfKQLmGV/slap-image.jpg" target="_blank"><img src="https://i.ibb.co/DfKQLmGV/slap-image.jpg" alt="slap-image" border="0"></a>
   </div>
 
   <div class="info">
