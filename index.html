@@ -22,164 +22,169 @@
       position:relative;
     }
 
-    /* HERO – UNTOUCHED */
+    /* HERO – NOW A FULL BLEED EPIC BACKGROUND */
     .hero {
+      min-height: 100vh;
       padding:50px 20px 60px;
-      background:linear-gradient(135deg, rgba(255,0,0,0.25), rgba(255,255,255,0.15));
+      background: 
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+        url('https://i.ibb.co/4J0Y7cK/slap-storm-bg.jpg') center/cover no-repeat fixed;
       position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
     }
+
     .tagline {
-      font-size:2.1rem;
+      font-size:2.3rem;
       font-weight:900;
       text-transform:uppercase;
       line-height:1.2;
       margin-bottom:30px;
       animation: pulse 2.5s infinite;
-      color:#000;
-      text-shadow: 0 0 15px #ff0000;
+      color:#fff;
+      text-shadow: 0 0 20px #ff0000, 0 0 40px #000;
     }
     .MainT {
-      font-size:4.5rem;
+      font-size:5.5rem;
       font-weight:900;
       line-height:0.9;
       text-transform:uppercase;
-      letter-spacing:5px;
-      color:#000;
+      letter-spacing:6px;
+      color:#fff;
       text-shadow:
-        8px 8px 0 #ff0000,
-        -8px -8px 0 #ff0000,
-        0 0 30px #fff,
-        0 0 50px #ff0000;
+        10px 10px 0 #ff0000,
+        -10px -10px 0 #ff0000,
+        0 0 40px #fff,
+        0 0 80px #ff0000;
       animation: glitch 3.5s infinite;
       margin:20px 0;
     }
     .dev-call {
-      font-size:1.6rem;
+      font-size:1.8rem;
       font-weight:900;
-      background:#000;
+      background:rgba(0,0,0,0.85);
       color:#e2b842;
       display:inline-block;
-      padding:18px 35px;
+      padding:20px 40px;
       border-radius:50px;
-      margin:35px auto 0;
-      border:5px solid #ff0000;
-      box-shadow:0 0 30px #ff0000, inset 0 0 20px rgba(255,0,0,0.3);
+      margin:40px auto 0;
+      border:6px solid #ff0000;
+      box-shadow:0 0 40px #ff0000, inset 0 0 30px rgba(255,0,0,0.5);
       animation: glow 1.8s infinite alternate;
     }
 
-    /* BUTTONS – FIXED RED BORDER ALIGNMENT */
+    /* BUTTONS */
     .buttons {
-      padding:0 20px 50px;
+      padding:40px 20px 60px;
       display:flex;
       flex-direction:column;
-      gap:25px;
+      gap:30px;
       z-index:2;
       position:relative;
     }
     .btn {
       display:block;
-      padding:30px;
-      font-size:2.2rem;
+      padding:32px;
+      font-size:2.4rem;
       font-weight:900;
       text-transform:uppercase;
       background:#000;
       color:#e2b842;
-      border-radius:22px;
+      border-radius:24px;
       text-decoration:none;
-      box-shadow:0 12px 0 #000; /* Black bottom shadow stays */
+      box-shadow:0 14px 0 #000;
       transition:all 0.25s;
-      min-height:90px;
+      min-height:100px;
       animation: bounce 2.2s infinite;
-      position:relative; /* For ::before positioning */
+      position:relative;
       overflow:visible;
     }
     .btn::before {
       content:'';
       position:absolute;
-      top:-6px;
-      left:-6px;
-      right:-6px;
-      bottom:-6px;
-      border:6px solid #ff0000;
-      border-radius:28px; /* Matches button radius + border width */
-      box-shadow:0 0 40px #ff0000;
+      top:-8px; left:-8px; right:-8px; bottom:-8px;
+      border:8px solid #ff0000;
+      border-radius:32px;
+      box-shadow:0 0 50px #ff0000;
       z-index:-1;
-      animation: bounce 2.2s infinite; /* Syncs with button bounce */
+      animation: bounce 2.2s infinite;
     }
     .btn:active {
-      transform:translateY(10px);
-      box-shadow:0 2px 0 #000;
+      transform:translateY(12px);
+      box-shadow:0 4px 0 #000;
     }
     .btn:active::before {
-      transform:translateY(10px);
-      box-shadow:0 0 50px #ff0000;
+      transform:translateY(12px);
+      box-shadow:0 0 70px #ff0000;
     }
 
-    /* INFO SECTION – UNTOUCHED */
+    /* INFO SECTION */
     .info {
       flex:1;
-      padding:50px 20px;
-      background:linear-gradient(to bottom, rgba(255,0,0,0.2), rgba(0,0,0,0.2));
-      border-top:10px solid #ff0000;
+      padding:60px 20px;
+      background:#000;
+      color:#e2b842;
+      border-top:12px solid #ff0000;
     }
     .info h3 {
-      font-size:2.8rem;
-      margin-bottom:30px;
+      font-size:3rem;
+      margin-bottom:35px;
       text-transform:uppercase;
-      color:#000;
-      text-shadow: 5px 5px 0 #ff0000;
+      color:#e2b842;
+      text-shadow: 6px 6px 0 #ff0000;
     }
     .info p {
-      font-size:1.6rem;
-      line-height:1.75;
-      margin-bottom:25px;
+      font-size:1.7rem;
+      line-height:1.8;
+      margin-bottom:28px;
       font-weight:900;
-      color:#000;
-      text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+      color:#fff;
     }
 
-    /* FOOTER – UNTOUCHED */
+    /* FOOTER */
     .footer {
-      padding:30px;
+      padding:35px;
       background:#000;
       color:#e2b842;
       font-weight:900;
-      font-size:1.3rem;
-      border-top:8px solid #ff0000;
+      font-size:1.4rem;
+      border-top:10px solid #ff0000;
     }
 
-    /* ANIMATIONS – UNTOUCHED EXCEPT BOUNCE */
-    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
+    /* ANIMATIONS */
+    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.08); } }
     @keyframes glitch {
-      0%,100% { text-shadow:8px 8px 0 #ff0000, -8px -8px 0 #ff0000; }
-      25% { text-shadow:-8px 8px 0 #ff0000, 8px -8px 0 #ff0000; }
-      50% { text-shadow:10px -10px 0 #000, -10px 10px 0 #000; }
-      75% { text-shadow:0 0 40px #ff0000; }
+      0%,100% { text-shadow:10px 10px 0 #ff0000,-10px -10px 0 #ff0000; }
+      25% { text-shadow:-10px 10px 0 #ff0000,10px -10px 0 #ff0000; }
+      50% { text-shadow:12px -12px 0 #000,-12px 12px 0 #000; }
+      75% { text-shadow:0 0 50px #ff0000; }
     }
-    @keyframes glow { from { box-shadow:0 0 30px #ff0000; } to { box-shadow:0 0 60px #ff0000; } }
-    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
+    @keyframes glow { from { box-shadow:0 0 40px #ff0000; } to { box-shadow:0 0 80px #ff0000; } }
+    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-20px); } }
 
-    /* PARTICLES – UNTOUCHED */
+    /* PARTICLES */
     .particle {
       position:absolute;
-      font-size:3rem;
+      font-size:3.5rem;
       pointer-events:none;
       animation:explode 1s forwards;
       z-index:10;
-      text-shadow:0 0 20px #ff0000;
+      text-shadow:0 0 25px #ff0000;
     }
     @keyframes explode {
       0% { opacity:1; transform:scale(0) rotate(0); }
-      100% { opacity:0; transform:scale(3) translateY(-120px) rotate(720deg); }
+      100% { opacity:0; transform:scale(3) translateY(-150px) rotate(720deg); }
     }
 
     @media (max-width:480px) {
-      .tagline {font-size:1.8rem;}
-      .MainT {font-size:3.6rem; letter-spacing:3px;}
-      .dev-call {font-size:1.4rem; padding:16px 25px;}
-      .btn {font-size:1.9rem; padding:28px;}
-      .info h3 {font-size:2.3rem;}
-      .info p {font-size:1.4rem;}
+      .tagline {font-size:1.9rem;}
+      .MainT {font-size:4.2rem; letter-spacing:4px;}
+      .dev-call {font-size:1.5rem; padding:18px 30px;}
+      .btn {font-size:2rem; padding:28px;}
+      .info h3 {font-size:2.5rem;}
+      .info p {font-size:1.5rem;}
     }
   </style>
 </head>
@@ -203,26 +208,28 @@
     </a>
   </div>
 
- <div class="info">
+  <div class="info">
     <h3>SO WHAT IS THE CYBERSLAP COMMUNITIES</h3>
     <p>
       Let me introduce you to CyberSlap Communities, an innovative mobile app that's poised to become the next viral sensation in social gaming and pranking. Imagine a world where friends, family, and online communities can "slap" each other digitally—sending instant, unignorable push notifications that trigger a full-screen overlay with an emoji face being slapped, accompanied by a hilarious slapping sound effect and a personal message/roast. It's fun, harmless chaos that keeps users engaged, laughing, and coming back for more.
     </p>
     <p>
     Communities Built on Playful Rivalry. At its heart, CyberSlap is a community-driven platform where users create or join groups based on shared interests—think "Football Fans", "Work Mates", or "School Friends". Once in a community, members can send "slaps" to each other, triggering the overlay and sound on the recipient's phone. It's like a digital slap in the face.
+   </p>
    <p>
       <strong>HOW THE CYBERSLAP COMMUNITIES WORK</strong>
     </p>
  
-  <P> You will pick a username; once that's done, you'll then be able to join or create a community. Once you're in a community, you'll be able to send a slap with a message that then sends a constant head-up notification every 10s until the slap is accepted.
-  </P>
+   <p> You will pick a username; once that's done, you'll then be able to join or create a community. Once you're in a community, you'll be able to send a slap with a message that then sends a constant head-up notification every 10s until the slap is accepted.
+   </p>
  </div>
 
   <div class="footer">
     © 2025 CyberSlap Communities | Flynn Cross | Slap Responsibly 
   </div>
 
-<div style="text-align: center; margin: 20px auto; max-width: 468px;">
+  <!-- Adsterra Banner (centered) -->
+  <div style="text-align: center; margin: 20px auto; max-width: 468px; padding: 10px;">
     <script type="text/javascript">
       atOptions = {
         'key' : 'faaf9c667300c73387eaa7a4505fa040',
@@ -240,7 +247,7 @@
     setInterval(() => {
       const p = document.createElement('div');
       p.className = 'particle';
-      p.innerHTML = Math.random() > 0.5 ? '🤚💥' : '👋🔥';
+      p.innerHTML = Math.random() > 0.5 ? 'SLAP' : 'FIRE';
       p.style.left = Math.random() * 100 + 'vw';
       p.style.top = Math.random() * 50 + 'vh';
       document.body.appendChild(p);
