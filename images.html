@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>CYBERSLAP</title>
+  <title>CYBERSLAP - Screenshots & Instructions</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     html, body { 
@@ -20,212 +20,149 @@
       flex-direction:column;
       min-height:100vh;
       position:relative;
-      /* REMOVED overflow:hidden → NOW SCROLLS PERFECTLY ON PHONE & PC */
-    }
-    .back {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.8rem;
-      z-index: 10;
     }
 
-    /* HERO – EVEN MORE AGGRESSIVE */
+    /* FULL BLEED EPIC HERO BACKGROUND */
     .hero {
-      padding:50px 20px 60px;
-      background:linear-gradient(135deg, rgba(255,0,0,0.25), rgba(255,255,255,0.15));
+      min-height: 100vh;
+      padding:60px 20px;
+      background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.75)),
+        url('slap-bg.jpg') center/cover no-repeat fixed;
       position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
     }
-    .tagline {
-      font-size:2.1rem;
+
+    .title {
+      font-size:5.5rem;
       font-weight:900;
       text-transform:uppercase;
-      line-height:1.2;
-      margin-bottom:30px;
-      animation: pulse 2.5s infinite;
-      color:#000;
-      text-shadow: 0 0 15px #ff0000;
-    }
-    .MainT {
-      font-size:4.5rem;
-      font-weight:900;
-      line-height:0.9;
-      text-transform:uppercase;
-      letter-spacing:5px;
-      color:#000;
+      letter-spacing:6px;
+      color:#fff;
       text-shadow:
-        8px 8px 0 #ff0000,
-        -8px -8px 0 #ff0000,
-        0 0 30px #fff,
-        0 0 50px #ff0000;
+        10px 10px 0 #ff0000,
+        -10px -10px 0 #ff0000,
+        0 0 40px #fff,
+        0 0 80px #ff0000;
       animation: glitch 3.5s infinite;
-      margin:20px 0;
+      margin-bottom:40px;
     }
-    .dev-call {
-      font-size:1.6rem;
+
+    .subtitle {
+      font-size:2.2rem;
+      font-weight:900;
+      color:#e2b842;
+      text-shadow: 0 0 20px #ff0000;
+      margin-bottom:60px;
+      animation: pulse 2.5s infinite;
+    }
+
+    /* IMAGE GRID */
+    .gallery {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap:25px;
+      padding:40px 20px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+
+    .gallery img {
+      width:100%;
+      height:auto;
+      border:8px solid #ff0000;
+      border-radius:20px;
+      box-shadow:0 0 40px #ff0000;
+      transition:transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform:scale(1.05);
+      box-shadow:0 0 80px #ff0000;
+    }
+
+    /* BACK BUTTON */
+    .back-btn {
+      margin:40px auto;
+      padding:20px 50px;
+      font-size:2.2rem;
       font-weight:900;
       background:#000;
       color:#e2b842;
-      display:inline-block;
-      padding:18px 35px;
+      border:6px solid #ff0000;
       border-radius:50px;
-      margin:35px auto 0;
-      border:5px solid #ff0000;
-      box-shadow:0 0 30px #ff0000, inset 0 0 20px rgba(255,0,0,0.3);
-      animation: glow 1.8s infinite alternate;
+      text-decoration:none;
+      display:inline-block;
+      box-shadow:0 0 40px #ff0000;
+      animation: bounce 2.2s infinite;
     }
 
-    /* ENLARGED IMAGE – NOW TRULY 50%+ BIGGER, FULL CLICKABLE */
-    .slap-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  margin: 20px 0;
-  width: 100%;
-  max-width: none;
-}
-.slap-image-container img {
-  max-width: 100%; /* Caps at native size—no upscale blur */
-  width: auto; /* Lets it fill naturally */
-  min-width: 80vw; /* Still huge on mobile (80% screen) */
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-  image-rendering: -webkit-optimize-contrast; /* Sharper edges on WebKit (Chrome/Opera) */
-  image-rendering: crisp-edges; /* Pixel-perfect on Firefox/Safari */
-}
-.slap-image-container img:hover,
-.slap-image-container img:active {
-  transform: scale(1.02); /* Toned-down zoom to avoid extra blur */
-}
-.slap-image-container a {
-  text-decoration: none;
-}
-
-   
-
-    /* INFO SECTION – FULL CHAOS */
-    .info {
-      flex:1;
-      padding:50px 20px;
-      background:linear-gradient(to bottom, rgba(255,0,0,0.2), rgba(0,0,0,0.2));
-      border-top:10px solid #ff0000;  /* ONE THICK RED LINE – NO MORE WEIRD DOUBLE LINES */
-    }
-    .info h3 {
-      font-size:2.8rem;
-      margin-bottom:30px;
-      text-transform:uppercase;
-      color:#000;
-      text-shadow: 5px 5px 0 #ff0000;
-    }
-    .info p {
-      font-size:1.6rem;
-      line-height:1.75;
-      margin-bottom:25px;
-      font-weight:900;
-      color:#000;
-      text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+    .back-btn::before {
+      content:'';
+      position:absolute;
+      top:-8px; left:-8px; right:-8px; bottom:-8px;
+      border:8px solid #ff0000;
+      border-radius:58px;
+      box-shadow:0 0 60px #ff0000;
+      z-index:-1;
+      animation: bounce 2.2s infinite;
     }
 
-    /* FOOTER – POPS HARD */
+    /* FOOTER */
     .footer {
-      padding:30px;
+      padding:40px;
       background:#000;
       color:#e2b842;
       font-weight:900;
-      font-size:1.3rem;
-      border-top:8px solid #ff0000;
+      font-size:1.5rem;
+      border-top:12px solid #ff0000;
     }
 
-    /* ANIMATIONS – MAXIMUM HYPE */
-    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
+    /* ANIMATIONS */
+    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.08); } }
     @keyframes glitch {
-      0%,100% { text-shadow:8px 8px 0 #ff0000, -8px -8px 0 #ff0000; }
-      25% { text-shadow:-8px 8px 0 #ff0000, 8px -8px 0 #ff0000; }
-      50% { text-shadow:10px -10px 0 #000, -10px 10px 0 #000; }
-      75% { text-shadow:0 0 40px #ff0000; }
+      0%,100% { text-shadow:10px 10px 0 #ff0000,-10px -10px 0 #ff0000; }
+      25% { text-shadow:-10px 10px 0 #ff0000,10px -10px 0 #ff0000; }
+      50% { text-shadow:12px -12px 0 #000,-12px 12px 0 #000; }
+      75% { text-shadow:0 0 60px #ff0000; }
     }
-    @keyframes glow { from { box-shadow:0 0 30px #ff0000; } to { box-shadow:0 0 60px #ff0000; } }
-    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
-
-    /* EXPLOSIVE SLAP EMOJI PARTICLES */
-    .particle {
-      position:absolute;
-      font-size:3rem;
-      pointer-events:none;
-      animation:explode 1s forwards;
-      z-index:10;
-      text-shadow:0 0 20px #ff0000;
-    }
-    @keyframes explode {
-      0% { opacity:1; transform:scale(0) rotate(0); }
-      100% { opacity:0; transform:scale(3) translateY(-120px) rotate(720deg); }
-    }
+    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-20px); } }
 
     @media (max-width:480px) {
-      .tagline {font-size:1.8rem;}
-      .MainT {font-size:3.6rem; letter-spacing:3px;}
-      .dev-call {font-size:1.4rem; padding:16px 25px;}
-      .btn {font-size:1.9rem; padding:28px;}
-      .info h3 {font-size:2.3rem;}
-      .info p {font-size:1.4rem;}
+      .title {font-size:4rem;}
+      .subtitle {font-size:1.8rem;}
+      .back-btn {font-size:1.9rem; padding:18px 40px;}
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="back">← BACK</a>
 
   <div class="hero">
-    <div class="tagline">Looking for help to further develop the app & convert to iOS. Interested developers: Talk to me in the forum!</div>
-    
-    <div class="MainT">WELCOME TO THE<br>CYBERSLAP<br>COMMUNITIES</div>
-    
-    <div class="dev-call">
-      Looking For Help To Further Develop The App & Also Convert To IOS.<br>App Developers Interested Can Talk To Me In The Forum
-    </div>
+    <div class="title">SCREENSHOTS<br>& INSTRUCTIONS</div>
+    <div class="subtitle">Witness the Slap Storm in Action</div>
   </div>
 
-  <!-- FIXED: BIGGER IMAGE + DIRECT CLICK LINK -->
-  <div class="slap-image-container">
-    <a href="https://i.ibb.co/DfKQLmGV/slap-image.jpg" target="_blank"><img src="https://i.ibb.co/DfKQLmGV/slap-image.jpg" alt="slap-image" border="0"></a>
+  <div class="gallery">
+    <img src="screenshot1.jpg" alt="CyberSlap Screenshot 1">
+    <img src="screenshot2.jpg" alt="CyberSlap Screenshot 2">
+    <img src="screenshot3.jpg" alt="CyberSlap Screenshot 3">
+    <img src="screenshot4.jpg" alt="CyberSlap Screenshot 4">
+    <img src="screenshot5.jpg" alt="CyberSlap Screenshot 5">
+    <img src="screenshot6.jpg" alt="CyberSlap Screenshot 6">
+    <!-- Add more as needed -->
   </div>
-   <div class="slap-image-container">
-    <a href="https://i.ibb.co/KpVk7t5p/slap-image-2.jpg" target="_blank"><img src="https://i.ibb.co/KpVk7t5p/slap-image-2.jpg" alt="slap-image" border="0"></a>
-  </div>
-	<div style="text-align: center; margin: 20px auto; max-width: 468px;">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : 'faaf9c667300c73387eaa7a4505fa040',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/faaf9c667300c73387eaa7a4505fa040/invoke.js"></script>
-  </div>
-   <div class="info">
-    <h3>SO HOW DOES THE CYBERSLAP APP WORK ?</h3>
-    <p> When you first load the app it will ask you to pick a username, Once you've choosen a username you'll move to the main screen, Offering 'Users & Communities' or 'Send A Slap'
-    </p>
-     <p>On the 'Users & Communities' page you will see your username displayed and also a Join Community box,<br> Insert the exect name of the community you wish to join and click the button
-     </p>  
-    <p>On the 'Send A Slap' screen you'll see a list of the communities you belong to, just click on a community and it will open up, Once opened choose who you want to send a slap too and input you'er message then hit send
-     </p>
-    <P> You will pick a username once thats done you'll then be able to join or create a community, once your in a community you'll be able to send a slap with a message, that then sends a constent every 10s heads-up notification until the slap is accepted
-    </P>
-     <p>The receiver of the slap will start to get Heads-Up notifications every 10s for 10mintues or until they accept the slap, Once the slap is accepted the app will display an animated gif with slapping sound while displaying your persenal message</p>
-  </div>
+
+  <a href="index.html" class="back-btn">BACK TO MAIN</a>
 
   <div class="footer">
     © 2025 CyberSlap Communities | Flynn Cross | Slap Responsibly 
   </div>
-	<div style="text-align: center; margin: 20px auto; max-width: 468px;">
+
+  <!-- Adsterra Banner -->
+  <div style="text-align: center; margin: 30px auto; max-width: 468px; padding: 10px;">
     <script type="text/javascript">
       atOptions = {
         'key' : 'faaf9c667300c73387eaa7a4505fa040',
@@ -238,17 +175,32 @@
     <script type="text/javascript" src="//www.highperformanceformat.com/faaf9c667300c73387eaa7a4505fa040/invoke.js"></script>
   </div>
 
-  <!-- EXPLOSIVE PARTICLES -->
+  <!-- PARTICLES -->
   <script>
     setInterval(() => {
       const p = document.createElement('div');
-      p.className = 'particle';
-      p.innerHTML = Math.random() > 0.5 ? '🤚💥' : '👋🔥';
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.top = Math.random() * 50 + 'vh';
+      p.innerHTML = Math.random() > 0.5 ? 'HAND' : 'FIRE';
+      p.style.cssText = `
+        position:fixed;
+        font-size:4rem;
+        pointer-events:none;
+        left:${Math.random()*100}vw;
+        top:${Math.random()*50}vh;
+        z-index:9999;
+        animation:explode 1s forwards;
+        text-shadow:0 0 30px #ff0000;
+      `;
       document.body.appendChild(p);
       setTimeout(() => p.remove(), 1000);
-    }, 700);
+    }, 600);
   </script>
+
+  <style>
+    @keyframes explode {
+      0% { opacity:1; transform:scale(0) rotate(0); }
+      100% { opacity:0; transform:scale(3) translateY(-180px) rotate(720deg); }
+    }
+  </style>
+
 </body>
 </html>
